@@ -1,5 +1,8 @@
 const cards = document.querySelector("section.cards");
 const card = document.querySelector("div.card");
+const modalOverlay = document.querySelector("div.modal-overlay");
+const modal = document.querySelector(".content-modal");
+const body = document.querySelector("body");
 
 const videos = [
   {
@@ -43,14 +46,21 @@ const videos = [
 
 const loadVideos = () => {
   videos.map((video, index) => {
-    console.log(index);
-
     let cardClone = card.cloneNode(true);
 
     cardClone.setAttribute("id", index);
     cardClone.querySelector("img").src = video.thumb;
     cardClone.querySelector(".title").innerHTML = video.title;
     cardClone.querySelector(".duration").innerHTML = video.duration;
+
+    cardClone.addEventListener("click", () => {
+      modal.querySelector(
+        "iframe"
+      ).src = `https://www.youtube.com/embed/${video.video_id}`;
+      modalOverlay.classList.add("active");
+      modal.classList.add("active");
+      body.style.overflow = "hidden";
+    });
 
     cards.appendChild(cardClone);
   });
@@ -59,3 +69,10 @@ const loadVideos = () => {
 loadVideos();
 
 card.remove();
+
+modal.querySelector(".close-modal").addEventListener("click", () => {
+  modalOverlay.classList.remove("active");
+  modal.classList.remove("active");
+  modal.querySelector("iframe").src = ``;
+  body.style.overflow = "initial";
+});
