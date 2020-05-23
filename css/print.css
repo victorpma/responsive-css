@@ -1,0 +1,16 @@
+header,
+form,
+.hero,
+.image {
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+main .cards {
+  display: block;
+}
+
+.card .title {
+  color: black;
+}

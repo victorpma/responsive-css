@@ -1,0 +1,95 @@
+html {
+  font-size: 50%;
+}
+
+@media (max-width: 850px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-control {
+    display: block;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero .container img {
+    order: -1;
+  }
+}
+
+@media (max-width: 520px) {
+  nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .one,
+  .two,
+  .three {
+    background-color: #fff;
+    height: 4px;
+    width: 100%;
+    margin: 6px auto;
+    transition-duration: 0.3s;
+  }
+
+  .menu-section.collapsed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #7159c1;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-section.collapsed nav {
+    display: block;
+  }
+
+  .menu-section.collapsed .menu-toggle {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    cursor: pointer;
+  }
+
+  .menu-section.collapsed .one {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .menu-section.collapsed .two {
+    opacity: 0;
+  }
+
+  .menu-section.collapsed .three {
+    transform: rotate(-45deg) translate(8px, -9px);
+  }
+
+  .menu-section.collapsed nav ul {
+    display: block;
+    text-align: center;
+  }
+
+  .menu-section.collapsed nav ul a {
+    display: block;
+    transition-duration: 0.3s;
+    font-size: 3rem;
+    line-height: 6rem;
+  }
+}
